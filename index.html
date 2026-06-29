@@ -475,6 +475,250 @@
         }
 
 
+/* ═══════════════════════════════════════
+   SCROLL PROGRESS BAR (Radar Style)
+   ═══════════════════════════════════════ */
+
+#scrollProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #64FFDA 0%, 
+        #00B4D8 30%, 
+        #64FFDA 50%, 
+        #FFD700 70%, 
+        #FF6B6B 100%
+    );
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+/* Side Scroll Tracker (Radar Filler) */
+#scrollTracker {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 200px;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 10px;
+    z-index: 999;
+    overflow: hidden;
+    border: 1px solid rgba(100, 255, 218, 0.15);
+}
+
+#scrollFiller {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg,
+        rgba(100, 255, 218, 0.3) 0%,
+        #64FFDA 50%,
+        #64FFDA 100%
+    );
+    border-radius: 10px;
+    transition: height 0.15s ease, 
+                background 0.5s ease,
+                box-shadow 0.5s ease;
+    position: absolute;
+    bottom: 0;
+}
+
+#scrollFiller.complete {
+    background: linear-gradient(180deg,
+        #FFD700 0%,
+        #FF6B6B 50%,
+        #FF6B6B 100%
+    );
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.6);
+}
+
+#scrollPercentage {
+    position: fixed;
+    right: 10px;
+    top: calc(50% + 115px);
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 10px;
+    font-weight: 700;
+    z-index: 999;
+    transition: color 0.5s ease;
+}
+
+#scrollPercentage.complete {
+    color: #FF6B6B;
+}
+
+/* Scroll tracker dots */
+.scroll-dot {
+    position: fixed;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(100, 255, 218, 0.3);
+    background: transparent;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.scroll-dot.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(100, 255, 218, 0.5);
+}
+
+.scroll-dot.passed {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* ═══════════════════════════════════════
+   CERTIFICATIONS SECTION
+   ═══════════════════════════════════════ */
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.cert-card {
+    background: var(--primary-bg);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15);
+}
+
+.cert-card:hover::before {
+    width: 6px;
+}
+
+.cert-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.cert-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.cert-icon.cisco {
+    background: rgba(0, 155, 219, 0.15);
+    color: #009BDB;
+}
+
+.cert-icon.network {
+    background: rgba(100, 255, 218, 0.15);
+    color: var(--accent-color);
+}
+
+.cert-icon.python {
+    background: rgba(255, 215, 0, 0.15);
+    color: #FFD700;
+}
+
+.cert-icon.code {
+    background: rgba(255, 107, 107, 0.15);
+    color: #FF6B6B;
+}
+
+.cert-title {
+    font-size: 17px;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cert-issuer {
+    font-size: 13px;
+    color: var(--accent-color);
+}
+
+.cert-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.cert-date {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.cert-score {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.cert-description {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.cert-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.cert-status.completed {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent-color);
+}
+
+.cert-status.progress {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+     
+
         /* Experience Section */
 #experience {
     background: var(--secondary-bg);
@@ -900,19 +1144,28 @@
     <div id="loading">
         <div class="loader"></div>
     </div>
+<!-- Scroll Progress Bar -->
+<div id="scrollProgress"></div>
 
+<!-- Side Scroll Tracker -->
+<div id="scrollTracker">
+    <div id="scrollFiller"></div>
+</div>
+<span id="scrollPercentage">0%</span>
     <!-- Navigation -->
     <nav>
         <div class="logo">AI</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
         <div class="mobile-menu">
             <span></span>
             <span></span>
@@ -1121,6 +1374,47 @@
             </div>
         </div>
     </section>
+
+    <!-- Certifications Section -->
+<section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certifications-grid">
+
+        <!-- Cert 1 -->
+        <div class="cert-card">
+            <div class="cert-header">
+                <div class="cert-icon cisco">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div>
+                    <h3 class="cert-title">CCNA — Cisco Networking</h3>
+                    <p class="cert-issuer">Cisco Networking Academy</p>
+                </div>
+            </div>
+            <div class="cert-details">
+                <span class="cert-date">
+                    <i class="fas fa-calendar-alt" style="margin-right: 6px;"></i>
+                    2024
+                </span>
+                <span class="cert-score">Score: 71%</span>
+            </div>
+            <p class="cert-description">
+                Studied networking fundamentals including IP addressing,
+                subnetting, routing, switching, TCP/IP, OSI model,
+                and network security basics through Cisco curriculum.
+            </p>
+            <span class="cert-status completed">
+                <i class="fas fa-check-circle"></i> Completed
+            </span>
+        </div>
+
+      
+
+      
+
+      
+    </div>
+</section>
 
 
 
@@ -1443,6 +1737,85 @@
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
         });
+        // ═══════════════════════════════════════
+// SCROLL PROGRESS BAR + RADAR FILLER
+// ═══════════════════════════════════════
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    // Top progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+    }
+
+    // Side filler (radar style)
+    const filler = document.getElementById('scrollFiller');
+    const percentText = document.getElementById('scrollPercentage');
+
+    if (filler && percentText) {
+        filler.style.height = scrollPercent + '%';
+        percentText.textContent = Math.round(scrollPercent) + '%';
+
+        // Color change when complete
+        if (scrollPercent >= 98) {
+            filler.classList.add('complete');
+            percentText.classList.add('complete');
+        } else {
+            filler.classList.remove('complete');
+            percentText.classList.remove('complete');
+        }
+    }
+});
+
+const animateOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Cert cards
+            const certCards = entry.target.querySelectorAll('.cert-card');
+            certCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Achievement cards
+            const achieveCards = entry.target.querySelectorAll('.achievement-card');
+            achieveCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Sport cards
+            const sportCards = entry.target.querySelectorAll('.sport-card');
+            sportCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        }
+    });
+}, { threshold: 0.1 });
+
+// Apply initial hidden state
+document.querySelectorAll('.cert-card, .achievement-card, .sport-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.5s ease';
+});
+
+// Observe sections
+const certSection = document.getElementById('certifications');
+const achieveSection = document.getElementById('achievements');
+if (certSection) animateOnScroll.observe(certSection);
+if (achieveSection) animateOnScroll.observe(achieveSection);
 
         // Navbar Active Link on Scroll
         const sections = document.querySelectorAll('section');
