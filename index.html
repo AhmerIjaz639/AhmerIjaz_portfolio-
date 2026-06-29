@@ -294,38 +294,7 @@
         .cert-status.completed { background: rgba(100, 255, 218, 0.1); color: var(--accent-color); }
         .cert-status.progress { background: rgba(255, 215, 0, 0.1); color: #FFD700; }
 
-        /* Achievements */
-        #achievements { background: var(--secondary-bg); }
-        .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .achievement-card {
-            background: var(--primary-bg); border: 1px solid transparent;
-            border-radius: 8px; padding: 25px; transition: all 0.3s ease; text-align: center;
-        }
-        .achievement-card:hover { transform: translateY(-8px); border-color: var(--accent-color); box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15); }
-        .achievement-emoji { font-size: 48px; margin-bottom: 15px; display: block; }
-        .achievement-title { color: var(--white); font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-        .achievement-subtitle { color: var(--accent-color); font-size: 14px; margin-bottom: 10px; }
-        .achievement-description { color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
-        .achievement-year { display: inline-block; margin-top: 12px; background: rgba(100, 255, 218, 0.1); color: var(--accent-color); padding: 3px 12px; border-radius: 20px; font-size: 12px; }
-
-        /* Sports */
-        .sports-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
-        .sport-card {
-            background: var(--primary-bg); border: 1px solid transparent;
-            border-radius: 8px; padding: 25px; transition: all 0.3s ease;
-            text-align: center; position: relative; overflow: hidden;
-        }
-        .sport-card::after {
-            content: ''; position: absolute; bottom: 0; left: 0;
-            width: 100%; height: 3px; background: var(--accent-color);
-            transform: scaleX(0); transition: transform 0.3s ease;
-        }
-        .sport-card:hover { transform: translateY(-8px); border-color: var(--accent-color); box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15); }
-        .sport-card:hover::after { transform: scaleX(1); }
-        .sport-emoji { font-size: 50px; margin-bottom: 15px; display: block; }
-        .sport-name { color: var(--white); font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-        .sport-level { color: var(--accent-color); font-size: 13px; margin-bottom: 10px; font-weight: 500; }
-        .sport-description { color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+     
 
         /* Education */
         .education-timeline { position: relative; padding-left: 50px; }
@@ -643,121 +612,10 @@
                 <p class="cert-description">Studied networking fundamentals including IP addressing, subnetting, routing, switching, TCP/IP, OSI model, and network security basics.</p>
                 <span class="cert-status completed"><i class="fas fa-check-circle"></i> Completed</span>
             </div>
-            <div class="cert-card">
-                <div class="cert-header">
-                    <div class="cert-icon python"><i class="fab fa-python"></i></div>
-                    <div>
-                        <h3 class="cert-title">Python Programming Intern</h3>
-                        <p class="cert-issuer">CodeAlpha</p>
-                    </div>
-                </div>
-                <div class="cert-details">
-                    <span class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:6px"></i>July 2025</span>
-                    <span class="cert-score">QR Verified</span>
-                </div>
-                <p class="cert-description">Virtual internship focused on Python development including automation scripts, game development, and chatbot applications.</p>
-                <span class="cert-status progress"><i class="fas fa-spinner fa-spin"></i> In Progress</span>
-            </div>
-            <div class="cert-card">
-                <div class="cert-header">
-                    <div class="cert-icon code"><i class="fas fa-laptop-code"></i></div>
-                    <div>
-                        <h3 class="cert-title">Flutter App Development</h3>
-                        <p class="cert-issuer">Self-Paced Bootcamp</p>
-                    </div>
-                </div>
-                <div class="cert-details">
-                    <span class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:6px"></i>2025</span>
-                    <span class="cert-score">7+ Apps Built</span>
-                </div>
-                <p class="cert-description">Intensive 8-day Flutter bootcamp covering Dart, UI design, state management, navigation, and API integration with real app projects.</p>
-                <span class="cert-status progress"><i class="fas fa-spinner fa-spin"></i> In Progress</span>
-            </div>
+
         </div>
     </section>
 
-    <!-- Achievements -->
-    <section id="achievements">
-        <h2 class="section-title">Achievements & Activities</h2>
-
-        <h3 style="color:var(--accent-color);margin-bottom:25px;font-size:18px;">
-            <i class="fas fa-trophy" style="margin-right:10px"></i>Academic Achievements
-        </h3>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <span class="achievement-emoji">🏆</span>
-                <h3 class="achievement-title">96% in Matriculation</h3>
-                <p class="achievement-subtitle">Unique School System</p>
-                <p class="achievement-description">Outstanding academic performance in Science group with distinction in Mathematics and Computer Science.</p>
-                <span class="achievement-year">2020</span>
-            </div>
-            <div class="achievement-card">
-                <span class="achievement-emoji">📚</span>
-                <h3 class="achievement-title">84% in FSc Pre-Engineering</h3>
-                <p class="achievement-subtitle">Punjab Group of Colleges</p>
-                <p class="achievement-description">Strong academic record in Pre-Engineering with focus on Mathematics, Physics, and Chemistry.</p>
-                <span class="achievement-year">2022</span>
-            </div>
-            <div class="achievement-card">
-                <span class="achievement-emoji">🎓</span>
-                <h3 class="achievement-title">COMSATS University</h3>
-                <p class="achievement-subtitle">BS Computer Science — Merit Admission</p>
-                <p class="achievement-description">Secured admission in one of Pakistan's top universities for Computer Science on merit basis.</p>
-                <span class="achievement-year">2023</span>
-            </div>
-            <div class="achievement-card">
-                <span class="achievement-emoji">⚡</span>
-                <h3 class="achievement-title">7+ Apps in 3 Days</h3>
-                <p class="achievement-subtitle">Flutter Bootcamp</p>
-                <p class="achievement-description">Built 7+ Flutter apps including Netflix Clone, Food Delivery, and Fitness App in just 3 days of learning.</p>
-                <span class="achievement-year">2025</span>
-            </div>
-            <div class="achievement-card">
-                <span class="achievement-emoji">🔒</span>
-                <h3 class="achievement-title">CCNA 71% Score</h3>
-                <p class="achievement-subtitle">Cisco Networking</p>
-                <p class="achievement-description">Self-studied Cisco CCNA concepts covering networking, routing, switching, and security fundamentals.</p>
-                <span class="achievement-year">2024</span>
-            </div>
-            <div class="achievement-card">
-                <span class="achievement-emoji">💻</span>
-                <h3 class="achievement-title">5+ Backend Projects</h3>
-                <p class="achievement-subtitle">FastAPI + MySQL</p>
-                <p class="achievement-description">Built multiple backend systems including Police Station MIS and Investment Tracker with real database integration.</p>
-                <span class="achievement-year">2024-25</span>
-            </div>
-        </div>
-
-        <h3 style="color:var(--accent-color);margin-bottom:25px;font-size:18px;">
-            <i class="fas fa-futbol" style="margin-right:10px"></i>Sports & Interests
-        </h3>
-        <div class="sports-container">
-            <div class="sport-card">
-                <span class="sport-emoji">⚽</span>
-                <h3 class="sport-name">Football</h3>
-                <p class="sport-level">Active Player • FIFA Enthusiast</p>
-                <p class="sport-description">Regular football player with keen interest in FIFA and international football. Follows Mbappe, Haaland and top European leagues.</p>
-            </div>
-            <div class="sport-card">
-                <span class="sport-emoji">🏏</span>
-                <h3 class="sport-name">Cricket</h3>
-                <p class="sport-level">Casual Player</p>
-                <p class="sport-description">Enjoys playing cricket with friends and following Pakistan cricket team in international tournaments.</p>
-            </div>
-            <div class="sport-card">
-                <span class="sport-emoji">🎮</span>
-                <h3 class="sport-name">Gaming</h3>
-                <p class="sport-level">Strategic Thinker</p>
-                <p class="sport-description">Enjoys strategic and competitive gaming. Develops problem-solving and quick decision-making skills.</p>
-            </div>
-            <div class="sport-card">
-                <span class="sport-emoji">📖</span>
-                <h3 class="sport-name">Ottoman History</h3>
-                <p class="sport-level">History Enthusiast</p>
-                <p class="sport-description">Deep interest in Ottoman history especially Sultan Mehmed II. Enjoys researching historical events and their modern world impact.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Education -->
     <section id="education">
