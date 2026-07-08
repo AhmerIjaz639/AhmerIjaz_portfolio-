@@ -256,6 +256,277 @@
         .cert-status.completed { background: rgba(100,255,218,0.1); color: var(--accent-color); }
         .cert-status.progress { background: rgba(255,215,0,0.1); color: #FFD700; }
 
+
+
+        /* ============ CERTIFICATE MODAL STYLES ============ */
+
+/* Click hint on cards */
+.click-hint {
+    margin-top: 15px;
+    color: var(--accent-color);
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.cert-card:hover .click-hint {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+.cert-card {
+    cursor: pointer;
+}
+
+/* Modal Backdrop */
+.cert-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(10, 25, 47, 0);
+    backdrop-filter: blur(0px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+.cert-modal.active {
+    opacity: 1;
+    visibility: visible;
+    background: rgba(10, 25, 47, 0.92);
+    backdrop-filter: blur(20px);
+}
+
+/* Modal Content */
+.cert-modal-content {
+    position: relative;
+    max-width: 700px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.5) translateY(60px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cert-modal.active .cert-modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Close Button */
+.cert-modal-close {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    width: 40px; height: 40px;
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.cert-modal-close:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    transform: rotate(90deg);
+}
+
+/* Medal Design */
+.cert-medal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: medalDrop 0.8s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+.cert-modal.active .cert-medal {
+    opacity: 1;
+}
+@keyframes medalDrop {
+    0% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+    60% { transform: translateY(10px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.medal-ribbon {
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 50% 75%, 15% 100%);
+    margin-bottom: -8px;
+    z-index: 1;
+}
+
+.medal-circle {
+    width: 70px; height: 70px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--primary-bg);
+    box-shadow:
+        0 0 20px rgba(255, 215, 0, 0.4),
+        0 0 40px rgba(255, 215, 0, 0.2),
+        inset 0 2px 4px rgba(255,255,255,0.3);
+    animation: medalGlow 2s ease-in-out infinite;
+    position: relative;
+}
+.medal-circle::after {
+    content: '';
+    position: absolute;
+    width: 80px; height: 80px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    animation: medalRing 2s ease-in-out infinite;
+}
+@keyframes medalGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.4), 0 0 40px rgba(255,215,0,0.2); }
+    50% { box-shadow: 0 0 30px rgba(255,215,0,0.6), 0 0 60px rgba(255,215,0,0.3); }
+}
+@keyframes medalRing {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0; }
+}
+
+/* Modal Info */
+.cert-modal-info {
+    margin-bottom: 25px;
+}
+.cert-modal-info h2 {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.modal-issuer {
+    color: var(--accent-color);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+.modal-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.modal-date, .modal-score {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent-color);
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.modal-score {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+/* Certificate Image Container */
+.cert-image-container {
+    position: relative;
+    border: 2px solid rgba(100, 255, 218, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+.cert-image-container:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 20px 60px rgba(100, 255, 218, 0.15);
+    transform: scale(1.02);
+}
+
+.cert-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-height: 200px;
+    background: var(--secondary-bg);
+}
+
+/* Image glow effect */
+.cert-image-glow {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(100,255,218,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    animation: glowRotate 6s linear infinite;
+}
+@keyframes glowRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Shine Particles */
+.shine-particles {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+.shine-particles span {
+    position: absolute;
+    width: 6px; height: 6px;
+    background: #FFD700;
+    border-radius: 50%;
+    opacity: 0;
+}
+.cert-modal.active .shine-particles span {
+    animation: sparkle 2s ease-in-out infinite;
+}
+.shine-particles span:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.shine-particles span:nth-child(2) { top: 20%; right: 10%; animation-delay: 0.4s; }
+.shine-particles span:nth-child(3) { bottom: 30%; left: 8%; animation-delay: 0.8s; }
+.shine-particles span:nth-child(4) { top: 40%; right: 20%; animation-delay: 1.2s; }
+.shine-particles span:nth-child(5) { bottom: 15%; right: 15%; animation-delay: 0.6s; }
+.shine-particles span:nth-child(6) { top: 5%; left: 50%; animation-delay: 1s; }
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) translateY(0); }
+    50% { opacity: 1; transform: scale(1.5) translateY(-20px); }
+}
+
+/* Prevent body scroll when modal open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cert-modal-content {
+        width: 95%;
+        max-width: 95%;
+    }
+    .cert-modal-info h2 {
+        font-size: 18px;
+    }
+    .cert-modal-close {
+        top: -45px;
+        right: 5px;
+    }
+    .medal-circle {
+        width: 55px; height: 55px;
+        font-size: 22px;
+    }
+    .modal-meta {
+        flex-wrap: wrap;
+    }
+}
      
 
         /* Education */
@@ -562,12 +833,13 @@
         </div>
     </section>
 
-    <!-- Certifications -->
-    <section id="certifications">
-        <h2 class="section-title">Certifications</h2>
-        <div class="certifications-grid">
+ <!-- Certifications -->
+<section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certifications-grid">
 
-            <div class="cert-card">
+        <div class="cert-card" onclick="showCertificate('cert-ccna.jpg', 'CCNA — Cisco Networking', 'Cisco Networking Academy', '2024', '71%')">
+            <div class="cert-card-inner">
                 <div class="cert-header">
                     <div class="cert-icon cisco"><i class="fas fa-network-wired"></i></div>
                     <div>
@@ -581,13 +853,76 @@
                 </div>
                 <p class="cert-description">Covered IP addressing, subnetting, TCP/IP, OSI model, routing & switching protocols, and basic network security fundamentals.</p>
                 <span class="cert-status completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <div class="click-hint">
+                    <i class="fas fa-medal"></i> Click to view certificate
+                </div>
             </div>
-
-         
-
         </div>
-    </section>
 
+        <!-- Add more cert cards same way -->
+        <div class="cert-card" onclick="showCertificate('cert-python.jpg', 'Python Programming', 'Coursera / Google', '2024', '95%')">
+            <div class="cert-card-inner">
+                <div class="cert-header">
+                    <div class="cert-icon python"><i class="fab fa-python"></i></div>
+                    <div>
+                        <h3 class="cert-title">Python Programming</h3>
+                        <p class="cert-issuer">Coursera / Google</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <span class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:5px"></i>2024</span>
+                    <span class="cert-score">Score: 95%</span>
+                </div>
+                <p class="cert-description">Comprehensive Python programming covering data structures, file I/O, OOP concepts, and automation scripting.</p>
+                <span class="cert-status completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <div class="click-hint">
+                    <i class="fas fa-medal"></i> Click to view certificate
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Certificate Modal -->
+<div id="certModal" class="cert-modal" onclick="closeCertificate(event)">
+    <div class="cert-modal-content">
+        <!-- Close Button -->
+        <button class="cert-modal-close" onclick="closeCertificate(event)">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Medal/Ribbon Top -->
+        <div class="cert-medal">
+            <div class="medal-ribbon"></div>
+            <div class="medal-circle">
+                <i class="fas fa-award"></i>
+            </div>
+        </div>
+
+        <!-- Certificate Info -->
+        <div class="cert-modal-info">
+            <h2 id="modalCertTitle">Certificate Title</h2>
+            <p id="modalCertIssuer" class="modal-issuer">Issuing Organization</p>
+            <div class="modal-meta">
+                <span id="modalCertDate" class="modal-date"></span>
+                <span id="modalCertScore" class="modal-score"></span>
+            </div>
+        </div>
+
+        <!-- Certificate Image -->
+        <div class="cert-image-container">
+            <img id="modalCertImage" src="" alt="Certificate" class="cert-image">
+            <div class="cert-image-glow"></div>
+        </div>
+
+        <!-- Shine particles -->
+        <div class="shine-particles">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</div>
    
 
     <!-- Education -->
@@ -779,6 +1114,66 @@
             const s = document.getElementById(id);
             if (s) cardObs.observe(s);
         });
+
+
+        // ============ CERTIFICATE MODAL ============
+function showCertificate(imageSrc, title, issuer, date, score) {
+    const modal = document.getElementById('certModal');
+    const modalImage = document.getElementById('modalCertImage');
+    const modalTitle = document.getElementById('modalCertTitle');
+    const modalIssuer = document.getElementById('modalCertIssuer');
+    const modalDate = document.getElementById('modalCertDate');
+    const modalScore = document.getElementById('modalCertScore');
+
+    // Set content
+    modalImage.src = imageSrc;
+    modalTitle.textContent = title;
+    modalIssuer.textContent = issuer;
+    modalDate.innerHTML = '<i class="fas fa-calendar-alt" style="margin-right:5px"></i>' + date;
+    modalScore.innerHTML = '<i class="fas fa-trophy" style="margin-right:5px"></i>Score: ' + score;
+
+    // Show modal
+    modal.classList.add('active');
+    document.body.classList.add('modal-open');
+
+    // Handle image load error (show placeholder)
+    modalImage.onerror = function() {
+        this.style.display = 'none';
+        this.parentElement.innerHTML = `
+            <div style="
+                padding: 60px 30px;
+                text-align: center;
+                background: var(--secondary-bg);
+                border-radius: 8px;
+            ">
+                <i class="fas fa-certificate" style="font-size:60px; color: var(--accent-color); margin-bottom:15px; display:block;"></i>
+                <p style="color: var(--text-secondary); font-size:14px;">Certificate image will be added soon</p>
+                <p style="color: var(--accent-color); font-size:12px; margin-top:8px;">📁 Place "${imageSrc}" in your project folder</p>
+            </div>
+        `;
+    };
+}
+
+function closeCertificate(event) {
+    // Only close if clicking backdrop or close button
+    if (event.target.classList.contains('cert-modal') ||
+        event.target.closest('.cert-modal-close')) {
+        const modal = document.getElementById('certModal');
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+}
+
+// Close with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('certModal');
+        if (modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+    }
+});
 
         // SINGLE SCROLL HANDLER
         const progressBar = document.getElementById('scrollProgress');
