@@ -2183,9 +2183,13 @@ document.querySelectorAll('a, button, .project-card, .chip, .proof-card, .tool-i
 });
 
 
- window.addEventListener("load", () => {
+
+window.addEventListener("load", function () {
+  setTimeout(() => {
     document.getElementById("loader").classList.add("hide");
+  }, 5000);
 });
+
 /* ═══════════════════════════════════════════════════
    SCROLL EFFECTS
 ═══════════════════════════════════════════════════ */
