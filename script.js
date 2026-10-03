@@ -2,7 +2,7 @@
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 
 /* ---------- DATA (verified from README / CV / your design) ---------- */
-const NAV=[['work','Work'],['about','About'],['stack','Stack'],['skills','Skills'],['experience','Experience'],['contact','Contact']];
+const NAV=[['work','Work'],['about','About'],['stack','Stack'],['skills','Skills'],['learning','Learning'],['experience','Experience'],['contact','Contact']];
 const REPO='https://github.com/AhmerIjaz639/CareerOS-AI';
 const PROJECTS=[
  {t:'CareerOS AI',d:'Multi-agent career intelligence platform',cat:'Python · FastAPI · Gemini',st:'Case study →',arch:['Resume + GitHub + job','Specialist agents','Master agent','Score, gaps, roadmap'],link:REPO,
@@ -12,7 +12,8 @@ const PROJECTS=[
  {t:'Cloud-Init / Butane Writeups',d:'Declarative configuration and immutable OS notes',cat:'YAML · Cloud-Init · Butane',st:'Case study →',arch:['users and write_files','packages and runcmd','systemd units','Cloud-Init mapping reference'],link:'https://github.com/AhmerIjaz639',cs:{Overview:'Working examples and notes on Cloud-Init, Butane and Ignition directives.',Result:'Manual Cloud-Init to Butane conversions used to verify understanding.'},stack:['YAML','Cloud-Init','Butane']},
  {t:'Sports Tournament Organizer',d:'Java DSA and OOP tournament system',cat:'Java · DSA · OOP',st:'Case study →',arch:['Queues','Stacks','Linked lists','Scheduling and score tracking'],link:'https://github.com/AhmerIjaz639',cs:{Overview:'A tournament bracket and scheduling system built with queues, stacks and linked lists.',Result:'Modular OOP design for team registration, match scheduling and score tracking.'},stack:['Java','DSA','OOP']},
  {t:'Portfolio & Python Projects',d:'Personal portfolio and Python practice',cat:'HTML · Python',st:'View project →',arch:[],link:'https://github.com/AhmerIjaz639/Python_projects',cs:{Overview:'Personal portfolio site and a collection of Python practice projects.'},stack:['HTML','Python']}];
-const SKILLS=[['Python',54],['Java',45],['SQL / MySQL',65],['Linux',56],['Networking',63],['Bash',40],['JavaScript',"learning"],['Node.js',"learning"],['Express.js',"learning"],['Git / GitHub',63],['Kali Linux',48],['Wireshark',42],['Nmap',40],['YAML',30],['Cloud-Init / Butane',43]];
+const CORE_SKILLS=[['Python',54],['Java',45],['SQL / MySQL',65],['Linux',56],['Networking',63],['Bash',40],['JavaScript',38],['Git / GitHub',63],['Kali Linux',48],['YAML',50],['Cloud-Init / Butane',43]];
+const LEARNING_SKILLS=[['Node.js',32],['Express.js',30],['Wireshark',34],['Nmap',30],['NoSQL',35]];
 /* [name, related-tags, learning?] */
 const MAP={BACKEND:[['Python','api db sec'],['Node.js','api',1],['Express.js','api',1]],DATABASE:[['MySQL','db api sec'],['SQL','db sec']],SYSTEMS:[['Linux','sys sec cloud net'],['Bash','sys sec cloud'],['Networking','net sec sys']],SECURITY:[['Kali Linux','sec net sys'],['Nmap','sec net',1],['Wireshark','sec net',1],['CTF / Labs','sec sys net']],'DEVOPS / CLOUD':[['Git','cloud api'],['Docker','cloud sys',1],['Cloud-Init','cloud sys'],['Butane','cloud sys'],['YAML','cloud']]};
 const LAB=[['Linux security automation','Exploring'],['Network scanning','Active · Nmap, Wireshark'],['SOC laboratory','Exploring'],['Cloud-init / Butane','Exploring'],['Operating systems in C · Database systems','Exploring']];
@@ -29,7 +30,10 @@ const LINKS=[['Email · ahmerijaz639@gmail.com','mailto:ahmerijaz639@gmail.com']
 $('#nav').innerHTML=NAV.map(n=>`<a href="#${n[0]}">${n[1]}</a>`).join('');
 $('#menu').innerHTML=NAV.map((n,i)=>`<a href="#${n[0]}" style="--i:${i}">${n[1]}</a>`).join('');
 $('#now').textContent='TCP/IP, DNS and HTTP · Wireshark and Nmap · Cloud-Init and Butane';
-$('#skills-grid').innerHTML=SKILLS.map(s=>`<div class="skill rv"><div><span>${s[0]}</span><b>${s[1]}%</b></div><span class="bar"><i style="width:${s[1]}%"></i></span></div>`).join('');
+const renderSkills=skills=>skills.map(s=>`<div class="skill rv"><div><span>${s[0]}</span><b>${s[1]}%</b></div><span class="bar"><i style="width:${s[1]}%"></i></span></div>`).join('');
+const renderLearningSkills=skills=>skills.map(s=>`<article class="learning-skill rv"><span class="lbl">Learning now</span><h4>${s}</h4><p>Building practical foundations</p></article>`).join('');
+$('#skills-grid').innerHTML=renderSkills(CORE_SKILLS);
+$('#learning-grid').innerHTML=renderLearningSkills(LEARNING_SKILLS.map(s=>s[0]));
 $('#idx').innerHTML=PROJECTS.map((p,i)=>`<li class="rv"><button class="pr" data-i="${i}"><span class="n">0${i+1}</span><span><h4>${p.t}</h4><p>${p.d}</p></span><span class="t">${p.cat}</span><span class="s">${p.st}</span></button></li>`).join('');
 $('#map').innerHTML=Object.entries(MAP).map(([c,a])=>`<div class="cat"><h4>${c}</h4>${a.map(t=>`<span class="tk ${t[2]?'l':''}" data-t="${t[1]}">${t[0]}</span>`).join('')}</div>`).join('');
 $('#labg').innerHTML=LAB.map((l,i)=>`<article class="ex rv"><span class="lbl">Exp 0${i+1}</span><h4>${l[0]}</h4><span class="lbl">${l[1].replace('Active','<b>Active</b>')}</span></article>`).join('');
