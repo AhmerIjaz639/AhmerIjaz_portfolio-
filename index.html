@@ -2,138 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ahmer Ijaz — Backend Developer & Aspiring Pentester</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmer Ijaz — Backend Developer / Cybersecurity</title>
+<meta name="description" content="Ahmer Ijaz, backend developer and cybersecurity learner in Lahore. Backend systems, networking and security.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="loader"><div class="tl"><div class="tl-text"><span>root@ahmer:~$</span> initializing system...</div><div class="lbar"><div class="lprog"></div></div><p>ACCESSING PORTFOLIO...</p></div></div>
-<div class="c-out" id="cOut"></div><div class="c-in" id="cIn"></div>
-<div id="progress"></div>
-<button id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<div id="prog"></div>
+<header id="top">
+  <a class="brand" href="#hero"><b>AHMER IJAZ</b><span>Backend Developer / Cybersecurity</span></a>
+  <nav id="nav" aria-label="Primary"></nav>
+  <div class="avail"><i></i>Open to opportunities</div>
+  <button id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div id="menu"></div>
 
-<nav id="nav">
-  <a href="#hero" class="brand">ahmer</a>
-  <div class="nav-items">
-    <a href="#hero">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
-    <a href="#certs">Certs</a><a href="#experience">Experience</a><a href="#volunteering">Volunteering</a><a href="#roadmap">Roadmap</a><a href="#contact">Contact</a>
-  </div>
-  <div class="burger" id="burger"><span></span><span></span><span></span></div>
-</nav>
-<div class="mnav" id="mnav"></div>
-
-<section id="hero" class="section">
-  <div class="hero-grid">
+<main>
+<section id="hero" class="dk">
+  <div class="wrap hero">
     <div>
-      <div class="status reveal"><span class="dot"></span>STATUS: Open to internships</div>
-      <h1 class="hero-title reveal d1">Ahmer<br><span class="grad">Ijaz</span></h1>
-      <div class="hero-role reveal d2"><span id="typed"></span></div>
-      <p class="hero-desc reveal d3"><strong>CCNA-certified CS student</strong> at COMSATS Lahore. I build secure backends with <strong>FastAPI &amp; Node.js</strong>, run a public 24-week cybersecurity bootcamp, and document everything on GitHub. Hackathon builder, community ambassador, open-source enthusiast.</p>
-      <div class="actions reveal d4">
-        <a href="#projects" class="btn btn-p"><i class="fas fa-code"></i> View Projects</a>
-        <a href="#contact" class="btn btn-o"><i class="fas fa-terminal"></i> Contact</a>
-      </div>
-      <div class="social reveal d5">
-        <a href="https://github.com/AhmerIjaz639" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/ahmer-ijaz-08a60237b/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://tryhackme.com/p/ahmerijaz639" title="TryHackMe"><i class="fas fa-user-secret"></i></a>
-        <a href="mailto:ahmerijaz639@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-      </div>
+      <p class="lbl up">Backend Developer / Security</p>
+      <h1><span class="m"><span>Ahmer</span></span><span class="m"><span class="fade">Ijaz</span></span></h1>
+      <p class="lead rv">I build backend systems and explore how they fail, scale and can be secured.</p>
+      <p class="sub rv">CCNA-certified computer science student from Lahore, focused on backend development, networking and cybersecurity. I document my learning publicly through projects, CTF writeups and bootcamp notes.</p>
+      <div class="cta rv"><a class="btn" href="#work">Selected work →</a><a class="btn" href="#contact">Contact</a></div>
     </div>
-    <div class="orbit reveal d3">
-      <div class="ring r2"><i class="oi fab fa-python" style="top:10%;right:12%"></i><i class="oi fab fa-node-js" style="bottom:10%;left:12%"></i></div>
-      <div class="ring r1"><i class="oi fab fa-linux" style="top:-22px;left:calc(50% - 22px)"></i><i class="oi fas fa-lock" style="bottom:-22px;left:calc(50% - 22px)"></i><i class="oi fas fa-network-wired" style="left:-22px;top:calc(50% - 22px)"></i><i class="oi fas fa-terminal" style="right:-22px;top:calc(50% - 22px)"></i></div>
-      <div class="o-center"><i class="fas fa-shield-alt"></i><span>BUILD+SECURE</span></div>
-    </div>
+    <figure class="dia rv" aria-label="System architecture"><svg id="hv" viewBox="0 0 400 330"></svg>
+      <span class="c tl">Lahore, Pakistan</span><span class="c tr">Computer Science</span><span class="c bl">Backend / Security</span><span class="c br">CCNA</span></figure>
   </div>
 </section>
 
-<section id="about" class="section"><div class="container about">
-  <div>
-    <div class="label reveal">about_target</div>
-    <h2 class="heading reveal d1">Who <span class="hl">Am I</span></h2>
-    <p class="txt reveal d2">I'm <strong>Ahmer Ijaz</strong>, a 4th-semester BS Computer Science student at COMSATS University Islamabad, Lahore Campus. My main path is <strong>backend development</strong>, with a security foundation built alongside it.</p>
-    <p class="txt reveal d3">My philosophy: you can't secure what you don't know how to build, and you can't build securely without knowing how it breaks. So I ship database-backed apps with parameterized queries and env-based secrets, while working through a self-directed <strong>21-module cybersecurity bootcamp</strong>.</p>
-    <div class="chips reveal d4" id="chips"></div>
-  </div>
-  <div class="term reveal d3">
-    <div class="th"><i class="td" style="background:#ff5f57"></i><i class="td" style="background:#febc2e"></i><i class="td" style="background:#28c840"></i><span>root@ahmer:~$</span></div>
-    <div class="tb" id="aboutTerm"></div>
+<section id="about" class="lt"><div class="wrap g2">
+  <h2 class="stmt rv">I like understanding systems from the inside out.</h2>
+  <div class="rv">
+    <p>I'm a 4th-semester BS Computer Science student at COMSATS University Islamabad, Lahore Campus. My main path is backend development in Python, with databases, networking and Linux underneath it, and a CCNA behind the networking.</p>
+    <p class="mu">My philosophy is simple: you can't secure what you don't understand how to build, and you can't build securely without understanding how it breaks. So I pair backend work with a self-directed 21-module, 24-week cybersecurity bootcamp and document everything publicly on GitHub.</p>
+    <div class="now"><p class="lbl">Currently exploring</p><p id="now"></p></div>
   </div>
 </div></section>
 
-<section id="skills" class="section"><div class="container">
-  <div class="label reveal">technical_stack</div>
-  <h2 class="heading reveal d1">Technical <span class="hl">Skills</span></h2>
-  <p class="sub reveal d2">Backend, security and networking — levels are honest self-assessments.</p>
-  <div class="two reveal d3">
-    <div id="skillBars" class="bars"></div>
-    <div class="panel"><div class="ph"><span>[ CYBER SKILLS SCAN ]</span><span class="live">ACTIVE</span></div><div class="pb" id="cyberBars"></div></div>
-  </div>
-  <div class="tools reveal" id="tools"></div>
+<section id="work" class="dk"><div class="wrap">
+  <div class="sh"><h3>Selected work</h3><span class="lbl">06 projects</span></div>
+  <ol id="idx"></ol>
+</div></section>
+<aside id="pv" aria-hidden="true"></aside>
+
+<section id="stack" class="lt"><div class="wrap">
+  <div class="sh"><h3>Technical map</h3><span class="lbl">Hover a domain · muted = learning</span></div>
+  <div id="map"></div>
 </div></section>
 
-<section id="projects" class="section"><div class="container">
-  <div class="label reveal">deployed_projects</div>
-  <h2 class="heading reveal d1">Featured <span class="hl">Projects</span></h2>
-  <p class="sub reveal d2">From AI backends to CTF writeups.</p>
-  <div class="filters reveal d3" id="filters"></div>
-  <div class="pgrid" id="projects-grid"></div>
+<section id="skills" class="dk"><div class="wrap">
+  <div class="sh"><h3>Skill levels</h3><span class="lbl">Current working estimate</span></div>
+  <div id="skills-grid"></div>
 </div></section>
 
-<section id="certs" class="section"><div class="container">
-  <div class="label reveal">credentials</div>
-  <h2 class="heading reveal d1">Certifi<span class="hl">cations</span></h2>
-  <p class="sub reveal d2">Hover (or tap) a card to flip it.</p>
-  <div class="fgrid" id="certGrid"></div>
+<section id="lab" class="dk"><div class="wrap">
+  <div class="sh"><h3>Engineering lab</h3><span class="lbl">Experiments in progress</span></div>
+  <div id="labg"></div>
 </div></section>
 
-<section id="experience" class="section"><div class="container">
-  <div class="label reveal">journey_timeline</div>
-  <h2 class="heading reveal d1">Experience &amp; <span class="hl">Journey</span></h2>
-  <div class="timeline" id="timeline"></div>
+<section id="journey" class="lt"><div class="wrap g2">
+  <div><h3 class="h">Journey</h3><p class="mu">The path so far, in order of focus.</p>
+    <p class="lbl" style="margin-top:3rem">Credentials</p><ul id="cr"></ul></div>
+  <ol id="tl"></ol>
 </div></section>
 
-<section id="volunteering" class="section"><div class="container">
-  <div class="label reveal">community</div>
-  <h2 class="heading reveal d1">Volunteering &amp; <span class="hl">Ambassador</span></h2>
-  <p class="sub reveal d2">Post by post — hover (or tap) a card to flip it.</p>
-  <div class="fgrid" id="volGrid"></div>
+<section id="experience" class="dk"><div class="wrap">
+  <div class="sh"><h3>Experience &amp; volunteering</h3><span class="lbl">Hackathon · community</span></div>
+  <ol id="ex" class="rows"></ol>
 </div></section>
 
-<section id="roadmap" class="section"><div class="container">
-  <div class="label reveal">security_roadmap</div>
-  <h2 class="heading reveal d1">Cybersecurity <span class="hl">Roadmap</span></h2>
-  <p class="sub reveal d2">21 modules / 24 weeks · target March 2027 · currently Module 4/21.</p>
-  <div class="two">
-    <div class="road reveal" id="road"></div>
-    <div class="term reveal d2"><div class="th"><i class="td" style="background:#ff5f57"></i><i class="td" style="background:#febc2e"></i><i class="td" style="background:#28c840"></i><span>kali@ahmer:~#</span></div>
-      <div class="tb"><div><b class="pr">$</b> cat progress.log</div>
-      <span class="out info">[+] Modules 1-2 complete</span><span class="out info">[+] Bandit 12/34 cleared</span><span class="out info">[+] Kali + Ubuntu VMware lab</span><span class="out info">[+] CCNA certified</span>
-      <span class="out warn">[*] Now: TCP/IP, DNS, HTTP, Wireshark, Nmap</span><span class="out">[~] Next: Python for Security, Web Sec</span></div></div>
-  </div>
-  <div class="gh reveal"><img src="https://streak-stats.demolab.com?user=AhmerIjaz639&theme=dark&background=0b102600&ring=00ff9f&fire=00d4ff&currStreakLabel=00ff9f&sideLabels=00d4ff&currStreakNum=ffffff&sideNums=ffffff&dates=9ec5d6&border=1a2332&border_radius=10" alt="GitHub streak" loading="lazy"></div>
+<section id="contact" class="dk end"><div class="wrap">
+  <h2 class="big"><span class="m"><span>Build something</span></span><span class="m"><span class="fade">worth shipping.</span></span></h2>
+  <p class="lead mu rv">Available for internships, software engineering opportunities<br>and interesting technical projects.</p>
+  <ul id="links" class="rv"></ul>
 </div></section>
+</main>
 
-<section id="contact" class="section"><div class="container">
-  <div class="label reveal">establish_connection</div>
-  <h2 class="heading reveal d1">Let's <span class="hl">Connect</span></h2>
-  <p class="sub reveal d2">Open to internships (Lahore on-site or remote) in backend, DevSecOps, SOC, networking or VoIP — plus part-time open-source work.</p>
-  <div class="two">
-    <div class="reveal d2" id="contactLinks"></div>
-    <form action="https://formsubmit.co/ahmerijaz639@gmail.com" method="POST" class="form reveal d3">
-      <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="New Portfolio Contact"><input type="hidden" name="_template" value="table">
-      <div class="frow"><label>Name<input name="Name" placeholder="John Doe" required></label><label>Email<input type="email" name="Email" placeholder="john@example.com" required></label></div>
-      <label>Topic<select name="Topic" required><option value="" disabled selected>Choose a topic</option><option>Job Opportunity</option><option>Internship</option><option>Collaboration</option><option>Open Source</option><option>Cybersecurity Discussion</option><option>Other</option></select></label>
-      <label>Message<textarea name="Message" placeholder="Tell me about your opportunity..." required></textarea></label>
-      <button class="btn btn-p" type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-    </form>
-  </div>
-</div></section>
-
-<footer><b>&gt;_ ahmer_ijaz</b><span><i>$</i> Designed &amp; built by Ahmer Ijaz</span></footer>
+<footer><span><b>AHMER IJAZ</b> &nbsp; Backend Developer / Cybersecurity &nbsp; Lahore, Pakistan</span><span>© 2026 Ahmer Ijaz</span></footer>
+<dialog id="cs"><button id="x">Close ✕</button><article id="csb"></article></dialog>
 <script src="script.js"></script>
 </body>
 </html>
