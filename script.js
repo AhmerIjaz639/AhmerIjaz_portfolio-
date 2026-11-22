@@ -12,24 +12,23 @@ const PROJECTS=[
  {t:'Cloud-Init / Butane Writeups',d:'Declarative configuration and immutable OS notes',cat:'YAML · Cloud-Init · Butane',st:'Case study →',arch:['users and write_files','packages and runcmd','systemd units','Cloud-Init mapping reference'],link:'https://github.com/AhmerIjaz639',cs:{Overview:'Working examples and notes on Cloud-Init, Butane and Ignition directives.',Result:'Manual Cloud-Init to Butane conversions used to verify understanding.'},stack:['YAML','Cloud-Init','Butane']},
  {t:'Sports Tournament Organizer',d:'Java DSA and OOP tournament system',cat:'Java · DSA · OOP',st:'Case study →',arch:['Queues','Stacks','Linked lists','Scheduling and score tracking'],link:'https://github.com/AhmerIjaz639',cs:{Overview:'A tournament bracket and scheduling system built with queues, stacks and linked lists.',Result:'Modular OOP design for team registration, match scheduling and score tracking.'},stack:['Java','DSA','OOP']},
  {t:'Portfolio & Python Projects',d:'Personal portfolio and Python practice',cat:'HTML · Python',st:'View project →',arch:[],link:'https://github.com/AhmerIjaz639/Python_projects',cs:{Overview:'Personal portfolio site and a collection of Python practice projects.'},stack:['HTML','Python']}];
-const CORE_SKILLS=[['Python',54],['Java',45],['SQL / MySQL',65],['Linux',56],['Networking',63],['Bash',40],['JavaScript',38],['Git / GitHub',63],['Kali Linux',48],['YAML',50],['Cloud-Init / Butane',43]];
-const LEARNING_SKILLS=[['Node.js',32],['Express.js',30],['Wireshark',34],['Nmap',30],['NoSQL',35]];
+const CORE_SKILLS=[['Python',50],['Java',40],['SQL / MySQL',70],['Linux',56],['Networking',63],['Bash',40],['JavaScript',35],['Git / GitHub',65],['Kali Linux',48],['Wireshark',60]];
+const LEARNING_SKILLS=[['Node.js',32],['Express.js',30],['Nmap',30],['NoSQL',35]];
 /* [name, related-tags, learning?] */
-const MAP={BACKEND:[['Python','api db sec'],['Node.js','api',1],['Express.js','api',1]],DATABASE:[['MySQL','db api sec']],SYSTEMS:[['Linux','sys sec cloud net'],['Bash','sys sec cloud'],['Networking','net sec sys']],SECURITY:[['Kali Linux','sec net sys'],['Nmap','sec net',1],['Wireshark','sec net',1],['CTF / Labs','sec sys net']],'DEVOPS / CLOUD':[['Git','cloud api'],['Docker','cloud sys',1],['Cloud-Init','cloud sys'],['Butane','cloud sys'],['YAML','cloud']]};
+const MAP={BACKEND:[['Python','api db sec'],['Node.js','api',1],['Express.js','api']],DATABASE:[['MySQL','db api sec']],SYSTEMS:[['Linux','sys sec cloud net'],['Bash','sys sec cloud'],['Networking','net sec sys']],SECURITY:[['Kali Linux','sec net sys'],['Nmap','sec net',1],['Wireshark','sec net'],['CTF / Labs','sec sys net',1]]};
 const LAB=[['Linux Fundamentals & Bash ','Exploring'],['Networking Fundamentals','Active · Nmap, Wireshark'],['SOC laboratory','Exploring'],['Web Technologies','Exploring'],['Operating systems in C ','Exploring']];
-const TL=[['Now','Computer Science','4th semester at COMSATS Lahore.'],['Certified','CCNA','Networking foundation for everything that follows.'],['Ongoing','Backend development','Python, JavaScript, Node.js and Express services with secure database access.'],['Module 4 / 21','Cybersecurity','Self-directed 24-week bootcamp, target March 2027. Bandit 12/34 cleared.'],['Lab','Linux and systems','Kali and Ubuntu environment on VMware.'],['Next','Cloud-native learning','Cloud-Init, Butane and declarative configuration.'],['Public','Open source and community','AI+compassion and IOY ambassador; bootcamp documented openly on GitHub.']];
+const TL=[['Now','Computer Science','5th semester at COMSATS Lahore.'],['Certified','CCNA','Networking foundation for everything that follows.'],['Ongoing','Backend development','Python, JavaScript, Node.js and Express services with secure database access.'],['Module 4 / 21','Cybersecurity','Self-directed 24-week bootcamp, target March 2027. Bandit 12/34 cleared.'],['Lab','Linux and systems','Kali and Ubuntu environment on VMware.'],['Public','Open source and community','AI+compassion and IOY ambassador; bootcamp documented openly on GitHub.']];
 const CR=[['CCNA','Cisco Networking Academy · 2026 · 71%'],['BS Computer Science','COMSATS University Islamabad, Lahore Campus · 2024 — 2028'],['Inclusive Open Source Community Orientation (LFC102)','The Linux Foundation · 2026'],['Google Crash Course on Python','Coursera · 2024']];
 const EXP=[
  {k:'Hackathon · 2026',t:'Bano Qabil Hackathon (Alibaba)',d:'Built CareerOS AI, a multi-agent career intelligence platform, and was selected for the regional level.',pts:['Five specialised agents: Resume Analyzer, GitHub Analyzer, Job Matcher, Skill Gap Detector and a Master Agent','Career readiness score, skill-gap analysis and a personalised roadmap','FastAPI REST backend with resume upload, the GitHub API as a data source and Google Gemini'],big:1},
  {k:'Ambassador',t:'AI+compassion Global',d:'Serving as a community ambassador.'},
- {k:'Ambassador',t:'IOY - International Youth Conference',d:'Serving as a community ambassador.'},
- {k:'Open source · 2026',t:'Linux Foundation — LFC102',d:'Completed the Inclusive Open Source Community Orientation, covering community norms and how to contribute to CNCF projects. Open to part-time open-source contribution.'}];
+ {k:'Ambassador',t:'IOY - International Youth Conference',d:'Serving as a community ambassador.'}
 const LINKS=[['Email · ahmerijaz639@gmail.com','mailto:ahmerijaz639@gmail.com'],['LinkedIn','https://www.linkedin.com/in/ahmer-ijaz-08a60237b/'],['GitHub','https://github.com/AhmerIjaz639'],['TryHackMe','https://tryhackme.com/p/ahmerijaz639']];
 
 /* ---------- RENDER ---------- */
 $('#nav').innerHTML=NAV.map(n=>`<a href="#${n[0]}">${n[1]}</a>`).join('');
 $('#menu').innerHTML=NAV.map((n,i)=>`<a href="#${n[0]}" style="--i:${i}">${n[1]}</a>`).join('');
-$('#now').textContent='TCP/IP, DNS and HTTP · Wireshark and Nmap · Cloud-Init and Butane';
+$('#now').textContent='TCP/IP, DNS and HTTP · Wireshark and Nmap ';
 const renderSkills=skills=>skills.map(s=>`<div class="skill rv"><div><span>${s[0]}</span><b>${s[1]}%</b></div><span class="bar"><i style="width:${s[1]}%"></i></span></div>`).join('');
 const renderLearningSkills=skills=>skills.map(s=>`<article class="learning-skill rv"><span class="lbl">Learning now</span><h4>${s}</h4><p>Building practical foundations</p></article>`).join('');
 $('#skills-grid').innerHTML=renderSkills(CORE_SKILLS);
@@ -43,7 +42,7 @@ $('#ex').innerHTML=EXP.map(e=>`<li class="rv ${e.big?'big4':''}"><span class="lb
 $('#links').innerHTML=LINKS.map(l=>`<li><a href="${l[1]}" ${l[1][0]==='h'?'target="_blank" rel="noopener"':''}><span>${l[0]}</span><span>↗</span></a></li>`).join('');
 
 /* hero architecture diagram */
-(()=>{const N={c:[200,28,'Client'],a:[200,98,'API · FastAPI'],m:[88,178,'MySQL'],s:[312,178,'Auth · Secrets'],l:[88,270,'Linux host'],n:[312,270,'Network · Audit']},E=['ca','am','as','ml','sn'];
+(()=>{const N={c:[200,28,'Client'],a:[200,98,'API · Express REST API'],m:[88,178,'MySQL'],s:[312,178,'Auth · Secrets'],l:[88,270,'Linux host'],n:[312,270,'Network · Audit']},E=['ca','am','as','ml','sn'];
  const pt=k=>N[k];let s=E.map(e=>`<path class="e" d="M${pt(e[0])[0]} ${pt(e[0])[1]+14}L${pt(e[1])[0]} ${pt(e[1])[1]-14}"/>`).join('');
  s+=Object.entries(N).map(([k,n])=>`<g class="${k==='a'?'hot':''}"><rect x="${n[0]-52}" y="${n[1]-14}" width="104" height="28"/><text x="${n[0]}" y="${n[1]+3.5}">${n[2]}</text></g>`).join('');
  $('#hv').innerHTML=s})();
