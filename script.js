@@ -22,7 +22,7 @@ const CR=[['CCNA','Cisco Networking Academy · 2026 · 71%'],['BS Computer Scien
 const EXP=[
  {k:'Hackathon · 2026',t:'Bano Qabil Hackathon (Alibaba)',d:'Built CareerOS AI, a multi-agent career intelligence platform, and was selected for the regional level.',pts:['Five specialised agents: Resume Analyzer, GitHub Analyzer, Job Matcher, Skill Gap Detector and a Master Agent','Career readiness score, skill-gap analysis and a personalised roadmap','FastAPI REST backend with resume upload, the GitHub API as a data source and Google Gemini'],big:1},
  {k:'Ambassador',t:'AI+compassion Global',d:'Serving as a community ambassador.'},
- {k:'Ambassador',t:'IOY - International Youth Conference',d:'Serving as a community ambassador.'}
+ {k:'Ambassador',t:'IOY - International Youth Conference',d:'Serving as a community ambassador.'}];
 const LINKS=[['Email · ahmerijaz639@gmail.com','mailto:ahmerijaz639@gmail.com'],['LinkedIn','https://www.linkedin.com/in/ahmer-ijaz-08a60237b/'],['GitHub','https://github.com/AhmerIjaz639'],['TryHackMe','https://tryhackme.com/p/ahmerijaz639']];
 
 /* ---------- RENDER ---------- */
